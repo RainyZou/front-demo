@@ -1,0 +1,63 @@
+<div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <p>productId</p>
+                <input type="text" placeholder="productId" id="productId" value="093feba1-cd88-4ceb-8126-744b3fc1159d"/>
+            </div>
+            <div>
+                <p>文件上传</p>
+                <input type="file" ng2FileSelect [uploader]="uploader" (change)="selectedFileOnChanged($event)" />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 列表-->
+    <button (click)="page();">刷新</button>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>pluginsId</td>
+            <td>productId</td>
+            <td>pluginsName</td>
+            <td>fileName</td>
+            <td>filePath</td>
+            <td>isUse</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of plugins">
+            <td>{{item.pluginsId}}</td>
+            <td>{{item.productId}}</td>
+            <td>{{item.pluginsName}}</td>
+            <td>{{item.fileName}}</td>
+            <td>{{item.filePath}}</td>
+            <td>{{item.isUse}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+    <!--<form action="http://localhost:8380/iot-web/rs/ws/iot/management/upload/uploadlist" method="post" enctype="multipart/form-data" target="_blank">-->
+    <!--<div>-->
+    <!--<input type="file" name="file"/>-->
+    <!--<p><input type="submit" value="文件上传"/></p>-->
+    <!--</div>-->
+    <!--</form>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<button (click)="page();">刷新</button>-->
+
+    <!--<div *ngFor="let item of products">-->
+        <!--<p>-->
+            <!--<span>{{item.manufacturerId}}</span>-->
+        <!--</p>-->
+    <!--</div>-->
+
+</div>

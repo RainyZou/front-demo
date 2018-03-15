@@ -1,0 +1,61 @@
+<h3>服务新增----------</h3>
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            productId：
+            <input type="text" id="productId" value="{{productDetailId}}"/>
+        </div>
+        <div>
+            服务名：
+            <input type="text" id="serviceType" value="serviceType"/>
+        </div>
+        <div>
+            描述：
+            <input type="text" id="description" value="description"/>
+        </div>
+        <div>
+            <button (click)="create()">新增</button>
+        </div>
+    </div>
+</div>
+
+<h3>服务列表----------</h3>
+
+<!-- 列表-->
+<button (click)="page('093feba1-cd88-4ceb-8126-744b3fc1159d');">测试刷新</button>
+<button (click)="page(productDetailId);">刷新--{{productDetailId}}</button>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td>serviceId</td>
+                <td>productId</td>
+                <td>服务名</td>
+                <td>描述</td>
+                <td>最后修改时间</td>
+                <td>详情</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of services">
+                <td>{{item.serviceId}}</td>
+                <td>{{item.productId}}</td>
+                <td>{{item.serviceType}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.lastDate | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td>
+                    <button (click)="detialShow(item.serviceId);">详情</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--属性列表-->
+<Property #property [serviceDetailId]="serviceDetailId"></Property>
+
+<!--属性列表-->
+<Command #command [serviceDetailId]="serviceDetailId"></Command>

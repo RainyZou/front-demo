@@ -1,0 +1,93 @@
+<h3>参数新增----------</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            commandId：
+            <input type="text" id="commandId" value="{{commandDetailId}}"/>
+        </div>
+        <div>
+            参数名：
+            <input type="text" id="paraName" value="paraName"/>
+        </div>
+        <div>
+            属性类型：
+            <input type="text" id="dataType" value="string"/>
+        </div>
+        <div>
+            是否必选：
+            <input type="text" id="required" value="true"/>
+        </div>
+        <div>
+            取值范围-小：
+            <input type="text" id="min" value="1"/>
+        </div>
+        <div>
+            取值范围-大：
+            <input type="text" id="max" value="3"/>
+        </div>
+        <div>
+            步长：
+            <input type="text" id="step" value="5"/>
+        </div>
+        <div>
+            最大长度：
+            <input type="text" id="maxLength" value="6"/>
+        </div>
+        <div>
+            单位：
+            <input type="text" id="unit" value="*$"/>
+        </div>
+        <div>
+            枚举值：
+            <input type="text" id="enumList" value="1,2"/>
+        </div>
+        <div>
+            <button (click)="create()">新增</button>
+        </div>
+    </div>
+</div>
+
+<h5>参数列表----------</h5>
+
+<!-- 列表-->
+<button (click)="page('2dbbfb90-a8f1-4fe7-a12b-eac5b4f2ab68');">测试刷新</button>
+<button (click)="page(commandDetailId);">刷新--{{commandDetailId}}</button>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td>paraId</td>
+                <td>commandId</td>
+                <td>paraName</td>
+                <td>dataType</td>
+                <td>required</td>
+                <td>min</td>
+                <td>max</td>
+                <td>step</td>
+                <td>maxLength</td>
+                <td>unit</td>
+                <td>enumList</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of paras">
+                <td>{{item.paraId}}</td>
+                <td>{{item.commandId}}</td>
+                <td>{{item.paraName}}</td>
+                <td>{{item.dataType}}</td>
+                <td>{{item.required}}</td>
+                <td>{{item.min}}</td>
+                <td>{{item.max}}</td>
+                <td>{{item.step}}</td>
+                <td>{{item.maxLength}}</td>
+                <td>{{item.unit}}</td>
+                <td>{{item.enumList}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

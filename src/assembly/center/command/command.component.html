@@ -1,0 +1,52 @@
+
+<h3>命令新增----------</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            serviceId：
+            <input type="text" id="serviceId" value="{{serviceDetailId}}"/>
+        </div>
+        <div>
+            命令名：
+            <input type="text" id="commandName" value="commandName"/>
+        </div>
+        <div>
+            <button (click)="create()">新增</button>
+        </div>
+    </div>
+</div>
+
+<h3>命令列表----------</h3>
+
+<!-- 列表-->
+<button (click)="page('fe3daa91-bd4b-4fb1-9be1-d04d07b293e8');">测试刷新</button>
+<button (click)="page(serviceDetailId);">刷新--{{serviceDetailId}}</button>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td>commandId</td>
+                <td>serviceId</td>
+                <td>命令名</td>
+                <td>详情</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of commands">
+                <td>{{item.commandId}}</td>
+                <td>{{item.serviceId}}</td>
+                <td>{{item.commandName}}</td>
+                <td>
+                    <button (click)="detialShow(item.commandId);">详情</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--参数列表-->
+<Para #para [commandDetailId]="commandDetailId"></Para>

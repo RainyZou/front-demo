@@ -1,0 +1,186 @@
+
+<h3>设备新增----------</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            productId：
+            <input type="text" id="productId" value="093feba1-cd88-4ceb-8126-744b3fc1159d"/>
+        </div>
+        <div>
+            devName：
+            <input type="text" id="devName" value="devName000"/>
+        </div>
+        <div>
+            devEui：
+            <input type="text" id="devEui" value="devEui000"/>
+        </div>
+        <div>
+            providerType：
+            <input type="text" id="providerType" value="telecom"/>
+        </div>
+        <div>
+            <button (click)="create()">新增</button>
+        </div>
+    </div>
+</div>
+
+
+<h3>设备列表----------</h3>
+
+<button (click)="page();">刷新</button>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td>deviceId</td>
+                <td>devName</td>
+                <td>devId</td>
+                <td>devEui</td>
+                <td>psk</td>
+                <td>status</td>
+                <td>providerType</td>
+                <td>下发命令</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of devices">
+                <td>{{item.deviceId}}</td>
+                <td>{{item.devName}}</td>
+                <td>{{item.devId}}</td>
+                <td>{{item.devEui}}</td>
+                <td>{{item.psk}}</td>
+                <td>{{item.status}}</td>
+                <td>{{item.providerType}}</td>
+                <td>
+                    <button (click)="downlinkShow(item.deviceId);">下发命令</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<h3>下发命令----------</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            <p>deviceId</p>
+            <input type="text" id="deviceId" value="cd298619-9484-4708-aacc-ada2bf75c61a"/>
+        </div>
+        <div>
+            <p>productId</p>
+            <input type="text" id="productId" value="093feba1-cd88-4ceb-8126-744b3fc1159d"/>
+        </div>
+        <div>
+            <p>serviceId</p>
+            <input type="text" id="serviceId" value="fe3daa91-bd4b-4fb1-9be1-d04d07b293e8"/>
+        </div>
+        <div>
+            <p>commandId</p>
+            <input type="text" id="commandId" value="2dbbfb90-a8f1-4fe7-a12b-eac5b4f2ab68"/>
+        </div>
+        <div>
+            <p>paraId</p>
+            <input type="text" id="paraId" value="e6695c36-fb02-4a05-8def-18e6713eae6f"/>
+        </div>
+        <div>
+            <p>paraValue</p>
+            <input type="text" id="paraValue" value="22"/>
+        </div>
+        <div>
+            <button (click)="downlink()">下发命令</button>
+        </div>
+    </div>
+</div>
+
+
+<h3>下发命令列表----------</h3>
+
+<div class="row" [style.display]="downlinkDisplay?'block':'none'">
+    <div class="col-md-12">
+        <div>
+            <p>devEui</p>
+            <input type="text" value="{{downMeta.devEui}}"/>
+        </div>
+        <div>
+            <p>deviceId</p>
+            <input type="text" value="{{downMeta.deviceId}}"/>
+        </div>
+        <div>
+            <p>productId</p>
+            <input type="text" value="{{downMeta.productId}}"/>
+        </div>
+        <div *ngFor="let service of downMeta.services">
+            <h4>------------------------------------------------------------</h4>
+            <div>
+                <p>serviceId</p>
+                <input type="text" value="{{service.serviceId}}"/>
+            </div>
+            <div>
+                <p>serviceType</p>
+                <input type="text" value="{{service.serviceType}}"/>
+            </div>
+            <div *ngFor="let command of service.commands">
+                <div>
+                    <p>commandId</p>
+                    <input type="text" value="{{command.commandId}}"/>
+                </div>
+                <div>
+                    <p>commandName</p>
+                    <input type="text" value="{{command.commandName}}"/>
+                </div>
+                <div *ngFor="let para of command.paras">
+                    <div>
+                        <p>paraId</p>
+                        <input type="text" value="{{para.paraId}}"/>
+                    </div>
+                    <div>
+                        <p>paraName</p>
+                        <input type="text" value="{{para.paraName}}"/>
+                    </div>
+                    <div>
+                        <p>dataType</p>
+                        <input type="text" value="{{para.dataType}}"/>
+                    </div>
+                    <div>
+                        <p>required</p>
+                        <input type="text" value="{{para.required}}"/>
+                    </div>
+                    <div>
+                        <p>min</p>
+                        <input type="text" value="{{para.min}}"/>
+                    </div>
+                    <div>
+                        <p>max</p>
+                        <input type="text" value="{{para.max}}"/>
+                    </div>
+                    <div>
+                        <p>step</p>
+                        <input type="text" value="{{para.step}}"/>
+                    </div>
+                    <div>
+                        <p>maxLength</p>
+                        <input type="text" value="{{para.maxLength}}"/>
+                    </div>
+                    <div>
+                        <p>unit</p>
+                        <input type="text" value="{{para.unit}}"/>
+                    </div>
+                    <div>
+                        <p>enumList</p>
+                        <input type="text" value="{{para.enumList}}"/>
+                    </div>
+                    <div>
+                        <p>value</p>
+                        <input type="text"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

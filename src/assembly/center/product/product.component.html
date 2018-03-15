@@ -1,0 +1,78 @@
+<h3>产品新增----------</h3>
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            厂商ID：
+            <input type="text" id="manufacturerId" value="manufacturerId"/>
+        </div>
+        <div>
+            厂商名称：
+            <input type="text" id="manufacturerName" value="manufacturerName"/>
+        </div>
+        <div>
+            设备型号：
+            <input type="text" id="model" value="model"/>
+        </div>
+        <div>
+            协议类型：
+            <input type="text" id="protocolType" value="protocolType"/>
+        </div>
+        <div>
+            设备类型：
+            <input type="text" id="productType" value="productType"/>
+        </div>
+        <div>
+            描述：
+            <input type="text" id="description" value="description"/>
+        </div>
+        <div>
+            <button (click)="create()">新增</button>
+        </div>
+    </div>
+</div>
+
+<h3>产品列表----------</h3>
+<!-- 列表-->
+<button (click)="page();">刷新</button>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td>厂商ID</td>
+                <td>厂商名称</td>
+                <td>设备型号</td>
+                <td>协议类型</td>
+                <td>设备类型</td>
+                <!--<td>图片路径</td>-->
+                <td>描述</td>
+                <td>最后修改时间</td>
+                <td>刷新部署</td>
+                <td>详情</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of products">
+                <td>{{item.manufacturerId}}</td>
+                <td>{{item.manufacturerName}}</td>
+                <td>{{item.model}}</td>
+                <td>{{item.protocolType}}</td>
+                <td>{{item.productType}}</td>
+                <!--<td>{{item.imagePath}}</td>-->
+                <td>{{item.description}}</td>
+                <td>{{item.lastDate}}</td>
+                <td>
+                    <button (click)="refresh(item.productId);">刷新</button>
+                </td>
+                <td>
+                    <button (click)="detialShow(item.productId);">详情</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--服务列表-->
+<Service #service [productDetailId]="productDetailId"></Service>

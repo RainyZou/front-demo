@@ -1,0 +1,29 @@
+<h3>下行历史列表----------</h3>
+
+<!-- 列表-->
+<button (click)="page();">刷新</button>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td>orderNum</td>
+                <td>payload</td>
+                <td>status</td>
+                <td>sendDate</td>
+                <td>backDate</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of downlinks">
+                <td>{{item.orderNum}}</td>
+                <td>{{item.payload}}</td>
+                <td>{{item.status}}</td>
+                <td>{{item.sendDate | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td>{{item.backDate | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
